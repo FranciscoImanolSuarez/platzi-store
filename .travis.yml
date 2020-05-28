@@ -1,27 +1,28 @@
-language: node_js
-
+lenguage: node_js
 cache:
   directories:
     - node_modules
     - ~/.npm
-
 node_js:
   -'12'
-
 git:
   depth:3
-
 script:
-  # la configuracion de travis tiene yarn
   - yarn build
-
+notifications:
+  email:
+    - imanolsuarez98@gmail.com
+    # PUEDEN HABER MAS DE 1 CORREO ELECTRONICO
+    on_success: always
+    on_failure: always
+    # MANDA MAIL CUANDO ES EXITO O FALLA
 deploy:
-  provider: pages # github pages
-  skip-clean:true
-  keep-history:true
-  github-token: $GITHUB_TOKEN
-  local-dir: dist/
-  target-branch: gh-pages
-  commit_message:"deploy on project"
+  provider: pages
+  skip_cleanup:true
+  keep_history:true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist/
+  target_branch: gh-page
+  commit_message:'Deploy del proyecto'
   on:
     branch: master
