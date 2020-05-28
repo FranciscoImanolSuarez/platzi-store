@@ -15,7 +15,12 @@ notifications:
     # PUEDEN HABER MAS DE 1 CORREO ELECTRONICO
     on_success: always
     on_failure: always
+    
     # MANDA MAIL CUANDO ES EXITO O FALLA
+
+    # slack: 
+    #   workspace: token
+
 deploy:
   provider: pages
   skip_cleanup:true
